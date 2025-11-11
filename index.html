@@ -63,6 +63,8 @@
     .form-container img{
       width:390px;
       margin-left:-20px;
+    }.form-container h2{
+      margin-top:100px;
     }
   </style>
 </head>
@@ -76,7 +78,8 @@
       <p>11th floor, 1108 Metlife, 391, Smith Street, Durban Central, 4001</p>
       <p>Head Office, Cape Town Branch Tel: +27 21 285 0213</p>
       <p>Johannesburg Branch Tel: +27 10 065 0687</p>
-      <p>Tel & Whatsapp: +27 67 273 6847</p>
+      <p>Durban Branch Tel: +27 67 273 6847</p>
+      <p>Whatsapp: +27 67 273 6847</p>
       <a href="../index.html">www.bsisa.co.za</a>,
       <a href="mailto:info@bsisa.co.za">info@bsisa.co.za</a>
     </div>
@@ -84,15 +87,21 @@
   <h2>REGISTRATION FORM</h2>
 
   <!-- Form using mailto -->
-  <form action="mailto:info@bsisa.co.za?cc=helent@bsisa.co.za&subject=Student Registration" method="POST" enctype="text/plain">
+  <form action="mailto:tsakanimaheso@gmail.com?cc=oumamaheso18@gmail.com&subject=Student Registration" method="POST" enctype="text/plain">
     <label>Name & Surname</label>
     <input type="text" name="fullname" required>
 
     <label>Contact Details</label>
-    <input type="tel" name="contact_details" 
-       placeholder="+1 555 123 4567" 
-       pattern="^\+?[0-9\s\-().]{7,20}$" 
-       required>
+<input 
+  type="text" 
+  name="contact_details" 
+  placeholder="+27 82 345 6789"
+  maxlength="15"
+  oninput="this.value = this.value.replace(/[^0-9+()\s\-]/g, '')"
+  pattern="^\+?[0-9\s\-()]{7,15}$"
+  title="Enter a valid phone number (7–15 digits, numbers only)"
+  required>
+
 
     <label>Email Address</label>
     <input type="email" name="email" required>
@@ -117,9 +126,13 @@
 
     <label>Start Date</label>
     <input type="date" name="start_date" required>
+    <label>Electronic Signature (Initials Only)</label>
+    <input type="text" name="signature" 
+       placeholder="e.g., TM or O.M." 
+       pattern="^[A-Z]{1,3}(\.[A-Z]{1,3})?$" 
+       title="Please enter initials only, e.g., TM or O.M." 
+       required>
 
-    <label>Electronic Signature (Type your Name & Surname)</label>
-    <input type="text" name="signature" placeholder="Type your full name" required>
 
     <button type="submit">Submit Registration</button>
   </form>
@@ -128,6 +141,8 @@
 
 </body>
 </html>
+
+
 
 
 
