@@ -5,88 +5,126 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>REGISTRATION FORM</title>
   <style>
-    body {
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
       font-family: Arial, sans-serif;
       background-color: #f8f9fa;
-      padding: 30px;
     }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    /* Keep your container style exactly as it is */
     .form-container {
       max-width: 750px;
-      margin: auto;
+      margin: 20px;
       background: #fff;
       padding: 30px;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 100%;
+      box-sizing: border-box;
     }
+
+    .form-container img{
+      width:390px;
+      margin-left:-20px;
+    }
+
     .addressBSI{
       font-size:12px;
       margin-left:330px;
       margin-top:-190px;
       color:#0055aa;
     }
+
     .addressBSI a{
       color:blue;
     }
+
     h2 {
       text-align: center;
       color: #003366;
+      margin-top: 100px;
     }
+
     label {
       display: block;
       margin-top: 15px;
       font-weight: bold;
     }
-    input, textarea, select {
+
+    input, textarea, select, button {
       width: 100%;
       padding: 10px;
       margin-top: 5px;
       border: 1px solid #ccc;
       border-radius: 5px;
       font-size: 14px;
+      box-sizing: border-box;
     }
+
     textarea {
       resize: vertical;
     }
+
     button {
       margin-top: 20px;
       background-color: #003366;
       color: #fff;
-      padding: 12px 20px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
       font-size: 16px;
     }
+
     button:hover {
       background-color: #0055aa;
     }
-    .form-container img{
-      width:390px;
-      margin-left:-20px;
-    }.form-container h2{
-      margin-top:100px;
-    }
+
+    /* Responsive for phones */
     @media (max-width: 600px) {
-    body {
-      padding: 10px;
-    }
+      .form-container {
+        margin: 0;
+        padding: 15px;
+        border-radius: 0;
+        box-shadow: none;
+      }
 
-    .form-container {
-      padding: 15px;
-      box-shadow: none;
-    }
+      h2 {
+        margin-top: 20px;
+      }
 
-    input, select, textarea, button {
-      font-size: 14px;
-      padding: 8px;
+      input, select, textarea, button {
+        font-size: 16px;
+        padding: 12px;
+      }
+
+      .addressBSI {
+        font-size: 11px;
+        margin-left: 0;
+        margin-top: 0;
+        text-align: center;
+      }
+
+      .form-container img {
+        width: 100%;
+        margin-left: 0;
+      }
     }
-  }
   </style>
 </head>
 <body>
 
 <div class="form-container">
     <img src="images/collegeBSI.jpg" alt="College BSI">
+    
     <div class="addressBSI">
       <p>5th Floor, 33 Church Street, Cape Town City Centre, Cape Town, 8001</p>
       <p>Suite 102-N, 28 Saddle Dr, Woodmead Office Park, Sandton, Johannesburg, SA</p>
@@ -95,28 +133,27 @@
       <p>Johannesburg Branch Tel: +27 10 065 0687</p>
       <p>Durban Branch Tel: +27 67 273 6847</p>
       <p>Whatsapp: +27 67 273 6847</p>
-      <a href="../index.html">www.bsisa.co.za</a>,
+      <a href="../index.html">www.bsisa.co.za</a>, 
       <a href="mailto:info@bsisa.co.za">info@bsisa.co.za</a>
     </div>
 
-  <h2>REGISTRATION sssFORM</h2>
+  <h2>REGISTRATION FORM</h2>
 
-  <!-- Form using mailto -->
   <form action="mailto:tsakanimaheso@gmail.com?cc=oumamaheso18@gmail.com&subject=Student Registration" method="POST" enctype="text/plain">
+    
     <label>Name & Surname</label>
     <input type="text" name="fullname" required>
 
     <label>Contact Details</label>
-<input 
-  type="text" 
-  name="contact_details" 
-  placeholder="+27 82 345 6789"
-  maxlength="15"
-  oninput="this.value = this.value.replace(/[^0-9+()\s\-]/g, '')"
-  pattern="^\+?[0-9\s\-()]{7,15}$"
-  title="Enter a valid phone number (7–15 digits, numbers only)"
-  required>
-
+    <input 
+      type="text" 
+      name="contact_details" 
+      placeholder="+27 82 345 6789"
+      maxlength="15"
+      oninput="this.value = this.value.replace(/[^0-9+()\s\-]/g, '')"
+      pattern="^\+?[0-9\s\-()]{7,15}$"
+      title="Enter a valid phone number (7–15 digits, numbers only)"
+      required>
 
     <label>Email Address</label>
     <input type="email" name="email" required>
@@ -128,7 +165,7 @@
     <input type="text" name="course_name" required>
 
     <label>Course Duration</label>
-    <div style="display:flex; gap:10px;">
+    <div style="display:flex; gap:10px; flex-wrap: wrap;">
       <input type="number" name="course_duration_value" min="1" placeholder="Duration" required style="flex:1;">
       <select name="course_duration_unit" required style="flex:1;">
         <option value="">Select Unit</option>
@@ -141,6 +178,7 @@
 
     <label>Start Date</label>
     <input type="date" name="start_date" required>
+
     <label>Electronic Signature (Initials Only)</label>
     <input type="text" name="signature" 
        placeholder="e.g., TM or O.M." 
@@ -148,11 +186,11 @@
        title="Please enter initials only, e.g., TM or O.M." 
        required>
 
-
     <button type="submit">Submit Registration</button>
   </form>
-
 </div>
 
 </body>
 </html>
+
+
